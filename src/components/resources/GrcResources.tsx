@@ -20,19 +20,19 @@ export const GrcResources = () => {
 
 
   return (
-    <section className="py-14 bg-transparent border-t border-slate-200/60 relative overflow-hidden">
+    <section className="py-8 bg-transparent border-t border-slate-200/60 relative overflow-hidden">
       <div className="container mx-auto px-6 space-y-10 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 max-w-5xl mx-auto text-left">
-          <div className="space-y-4">
+        <div className="flex flex-col items-center text-center gap-6 max-w-3xl mx-auto">
+          <div className="space-y-4 flex flex-col items-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-600 text-xs font-bold uppercase tracking-widest rounded-full">
               GRC Knowledge Hub
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight font-heading">
               Resources & Updates
             </h2>
-            <p className="text-slate-600 text-sm leading-relaxed max-w-md font-medium">
+            <p className="text-slate-600 text-sm leading-relaxed max-w-md font-medium mx-auto">
               Access Govenics' regulatory guides, legislative compliance alerts, and GxP data integrity frameworks.
             </p>
           </div>

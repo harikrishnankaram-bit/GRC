@@ -170,8 +170,8 @@ export const GrcHero = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,82,255,0.012)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,82,255,0.012)_1px,transparent_1px)] bg-[size:4rem_4rem] z-10 pointer-events-none" />
 
       {/* Main Content Overlay */}
-      <div className="container mx-auto px-6 md:px-12 relative z-20 flex items-center w-full h-full">
-        <div className="max-w-3xl w-full">
+      <div className="container mx-auto px-6 md:px-12 relative z-20 flex flex-col items-center justify-center text-center w-full h-full">
+        <div className="max-w-3xl w-full mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
@@ -179,7 +179,7 @@ export const GrcHero = () => {
               initial="initial"
               animate="animate"
               exit="initial"
-              className="space-y-6 md:space-y-7 text-left"
+              className="space-y-6 md:space-y-7 flex flex-col items-center text-center"
             >
               {/* Premium GRC Badge */}
               <motion.div
@@ -207,7 +207,7 @@ export const GrcHero = () => {
               {/* Slide Description */}
               <motion.p
                 variants={elementVariants}
-                className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl font-sans leading-relaxed font-medium"
+                className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto font-sans leading-relaxed font-medium"
               >
                 {grcSlides[activeIndex].description}
               </motion.p>
@@ -215,7 +215,7 @@ export const GrcHero = () => {
               {/* CTA Buttons */}
               <motion.div
                 variants={elementVariants}
-                className="flex flex-col sm:flex-row items-center gap-4 pt-2"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
               >
                 <Link to="/contact" className="w-full sm:w-auto">
                   <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl text-sm font-bold tracking-wide transition-all shadow-lg shadow-blue-500/20 hover:scale-[1.02]">
@@ -232,7 +232,7 @@ export const GrcHero = () => {
               {/* Trust Indicators */}
               <motion.div
                 variants={elementVariants}
-                className="flex flex-wrap gap-x-8 gap-y-3 pt-6 text-xs sm:text-sm font-bold uppercase tracking-widest text-slate-400 border-t border-slate-100"
+                className="flex flex-wrap justify-center gap-x-8 gap-y-3 pt-6 text-xs sm:text-sm font-bold uppercase tracking-widest text-slate-400 border-t border-slate-100"
               >
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4.5 h-4.5 text-blue-600 shrink-0" />
@@ -271,7 +271,7 @@ export const GrcHero = () => {
       </div>
 
       {/* Interactive Dot Indicators */}
-      <div className="absolute bottom-8 left-6 md:left-12 z-20 flex items-center gap-2.5">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5">
         {grcSlides.map((_, index) => (
           <button
             key={index}

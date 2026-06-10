@@ -3,12 +3,18 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { servicesData } from "@/data/services-data";
 import { industriesData } from "@/data/industries-data";
+import { GrcSliderHero } from "@/components/hero/GrcSliderHero";
 import { 
-  ArrowLeft, CheckCircle2, ShieldCheck, 
+  CheckCircle2, ShieldCheck, 
   Shield, Layers, Wifi, Cpu, Users, ClipboardCheck, 
   Settings, Bot, ArrowRightLeft, BookOpen, BarChart3, Clock,
   ArrowRight
 } from "lucide-react";
+
+import heroAiDriven from "@/assets/hero-ai-driven.jpg";
+import heroSoc from "@/assets/hero-soc.jpg";
+import heroVerify from "@/assets/hero-verify.jpg";
+import heroIntegration from "@/assets/hero-integration.jpg";
 
 export default function ServiceDetailPage() {
   const { serviceId } = useParams<{ serviceId: string }>();
@@ -101,6 +107,37 @@ export default function ServiceDetailPage() {
 
   const stats = getServiceStats(service.id);
   const portfolio = getServicePortfolio(service.benefits);
+
+  const slides = [
+    {
+      badge: "Overview",
+      title: "Solutions for",
+      highlight: service.title,
+      description: service.problem,
+      image: heroAiDriven,
+    },
+    {
+      badge: "Methodology",
+      title: "Dynamic GRC and",
+      highlight: "Continuous Audit Controls",
+      description: service.solution,
+      image: heroIntegration,
+    },
+    {
+      badge: "Standards Compliance",
+      title: "Assurance for",
+      highlight: service.standards.slice(0, 2).join(" & ") || "Statutory Norms",
+      description: `We align your corporate controls with key standards: ${service.standards.join(", ")}.`,
+      image: heroSoc,
+    },
+    {
+      badge: "Expected Value",
+      title: "Measurable Quality &",
+      highlight: "Risk Reductions",
+      description: service.benefits.join(" • "),
+      image: heroVerify,
+    }
+  ];
 
   // Global Capability Tabs matching Govenics support services
   const tabs = [
@@ -221,33 +258,12 @@ export default function ServiceDetailPage() {
     <Layout>
       <div className="bg-white pb-24 text-slate-600">
         
-        {/* Panel 1: Title & Hero Description */}
-        <section className="relative py-20 bg-gradient-to-b from-blue-50/50 via-white to-white border-b border-slate-200/80 overflow-hidden">
-          <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-10 pointer-events-none" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-blue-600/10 to-transparent rounded-full blur-[100px] pointer-events-none" />
-
-          <div className="container mx-auto px-6 relative z-10 space-y-6">
-            <div className="text-left">
-              <Link to="/">
-                <button className="inline-flex items-center gap-1.5 px-4 py-2 bg-white border border-slate-200 text-slate-650 hover:text-blue-600 rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-sm">
-                  <ArrowLeft className="w-4 h-4" /> Back to Home
-                </button>
-              </Link>
-            </div>
-
-            <div className="text-center space-y-5 max-w-4xl mx-auto pt-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-600 text-xs font-extrabold uppercase tracking-widest rounded-full">
-                <Shield className="w-3.5 h-3.5" /> Service Solution
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 font-heading leading-tight">
-                {service.title}
-              </h1>
-              <p className="text-slate-600 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
-                {service.problem} {service.solution}
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Panel 1: Title & Hero Description Carousel */}
+        <GrcSliderHero 
+          slides={slides} 
+          backLink={{ to: "/", label: "Back to Home" }} 
+          categoryLabel="Service Solution"
+        />
 
         {/* Panel 2: Statistics Grid */}
         <section className="py-12 relative overflow-hidden bg-white border-b border-slate-100">
@@ -434,7 +450,7 @@ export default function ServiceDetailPage() {
             </p>
             <div className="pt-2">
               <Link to="/contact">
-                <button className="group bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4.5 rounded-2xl shadow-lg shadow-blue-500/20 hover:scale-[1.02] transition-all flex items-center gap-2 mx-auto text-sm tracking-wide">
+                <button className="group bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-blue-500/20 hover:scale-[1.02] transition-all flex items-center gap-2 mx-auto text-sm tracking-wide">
                   Schedule {service.title} Audit
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>

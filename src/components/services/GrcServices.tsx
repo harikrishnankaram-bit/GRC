@@ -14,7 +14,7 @@ export const GrcServices = () => {
     : servicesData.filter(serv => serv.category === filter);
 
   return (
-    <section id="services" className="py-14 bg-gradient-to-b from-blue-50/60 via-indigo-50/20 to-white border-t border-slate-200/80 relative overflow-hidden">
+    <section id="services" className="py-8 bg-gradient-to-b from-blue-50/60 via-indigo-50/20 to-white border-t border-slate-200/80 relative overflow-hidden">
       {/* Background spotlights */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-600/5 rounded-full blur-[140px] pointer-events-none" />
@@ -22,21 +22,21 @@ export const GrcServices = () => {
       <div className="container mx-auto px-6 space-y-10 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div className="max-w-2xl space-y-4">
+        <div className="flex flex-col items-center text-center space-y-6 max-w-3xl mx-auto">
+          <div className="space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-500 text-xs font-bold uppercase tracking-widest rounded-full">
               Specialized GRC Offerings
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight font-heading">
               Our Service Ecosystem
             </h2>
-            <p className="text-slate-650 text-base leading-relaxed">
+            <p className="text-slate-650 text-base leading-relaxed max-w-2xl mx-auto">
               We design and coordinate audit checklists, data privacy frameworks, industrial safety registers, and network cybersecurity architectures to secure your operational resilience.
             </p>
           </div>
 
           {/* Dynamic Filter Categories buttons */}
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap justify-center gap-2.5">
             {categories.map((cat) => (
               <button
                 key={cat}

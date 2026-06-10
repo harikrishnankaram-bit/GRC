@@ -42,15 +42,15 @@ export const Footer = () => {
         {/* Industries List */}
         <div>
           <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-6">
-            Industries
+            Key Sectors
           </h4>
           <ul className="space-y-3.5 text-sm">
-            <li><Link to="/industries/bfsi" className="hover:text-blue-400 transition-colors">BFSI</Link></li>
-            <li><Link to="/industries/healthcare" className="hover:text-blue-400 transition-colors">Healthcare</Link></li>
-            <li><Link to="/industries/manufacturing" className="hover:text-blue-400 transition-colors">Manufacturing</Link></li>
-            <li><Link to="/industries/it-services" className="hover:text-blue-400 transition-colors">IT & Technology</Link></li>
-            <li><Link to="/industries/telecom" className="hover:text-blue-400 transition-colors">Telecom</Link></li>
-            <li><Link to="/industries/pharma-sciences" className="hover:text-blue-400 transition-colors">Pharma</Link></li>
+            <li><Link to="/industries/financial-services#banking" className="hover:text-blue-400 transition-colors">Banking & Finance</Link></li>
+            <li><Link to="/industries/healthcare-life-sciences#healthcare" className="hover:text-blue-400 transition-colors">Healthcare & Ayush</Link></li>
+            <li><Link to="/industries/manufacturing-industrial#automobiles" className="hover:text-blue-400 transition-colors">Automobiles</Link></li>
+            <li><Link to="/industries/technology-electronics#it-bpm" className="hover:text-blue-400 transition-colors">IT & Technology</Link></li>
+            <li><Link to="/industries/infrastructure-construction#real-estate" className="hover:text-blue-400 transition-colors">Real Estate & Infra</Link></li>
+            <li><Link to="/industries/energy-utilities#renewable-energy" className="hover:text-blue-400 transition-colors">Renewable Energy</Link></li>
           </ul>
         </div>
 
@@ -95,9 +95,9 @@ export const Footer = () => {
           &copy; {new Date().getFullYear()} Govenics Consulting. All Rights Reserved. (A Division of ISI Group).
         </div>
         <div className="flex items-center gap-6">
-          <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
-          <a href="#" className="hover:text-slate-300 transition-colors">Cookie Audit</a>
+          <Link to="/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+          <Link to="/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+          <Link to="/cookies" className="hover:text-slate-300 transition-colors">Cookie Policy</Link>
         </div>
       </div>
     </footer>

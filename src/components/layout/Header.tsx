@@ -36,21 +36,36 @@ export const Header = () => {
     return `${baseClass} text-slate-700 hover:text-blue-600`;
   };
 
+  const clusters = [
+    "Manufacturing & Industrial",
+    "Technology & Electronics",
+    "Infrastructure & Construction",
+    "Energy & Utilities",
+    "Financial Services",
+    "Healthcare & Life Sciences",
+    "Consumer & Retail",
+    "Media & Services"
+  ];
+
+  const getClusterId = (name: string) => {
+    return name.toLowerCase()
+      .replace(/ & /g, "-")
+      .replace(/ /g, "-");
+  };
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || mobileOpen
-          ? "bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-md"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || mobileOpen
+        ? "bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-md"
+        : "bg-transparent"
+        }`}
     >
       {/* Top Info Bar */}
       <div
-        className={`border-b transition-all duration-300 ${
-          scrolled
-            ? "h-0 opacity-0 overflow-hidden"
-            : "h-10 opacity-100 border-slate-200 bg-slate-50 text-slate-600"
-        }`}
+        className={`border-b transition-all duration-300 ${scrolled
+          ? "h-0 opacity-0 overflow-hidden"
+          : "h-10 opacity-100 border-slate-200 bg-slate-50 text-slate-600"
+          }`}
       >
         <div className="container mx-auto px-6 h-full flex items-center justify-center text-[11px] font-bold tracking-wider uppercase text-center">
           <span className="text-slate-500">
@@ -60,7 +75,7 @@ export const Header = () => {
       </div>
 
       {/* Main Navigation Bar */}
-      <nav className="container mx-auto px-6 h-20 flex items-center justify-between">
+      <nav className="container mx-auto px-6 h-20 flex items-center justify-between relative">
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform">
@@ -83,70 +98,66 @@ export const Header = () => {
           <Link to="/" className={getLinkClass("/")}>
             Home
           </Link>
-          <a href="#trust" className={getNavItemClass()}>
-            Trust
-          </a>
 
-          {/* Industries Mega Dropdown */}
+          {/* Industry Mega Dropdown */}
           <div
-            className="relative"
+            className=""
             onMouseEnter={() => setActiveDropdown("industries")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
             <button className={getNavItemClass()}>
-              Industries <ChevronDown className="w-4 h-4 text-current" />
+              Industry <ChevronDown className="w-4 h-4 text-current" />
             </button>
             {activeDropdown === "industries" && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[720px] bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-3 gap-3 animate-fade-in mt-1">
-                <div className="col-span-3 pb-3 mb-2 border-b border-slate-100">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[95dvw] max-w-6xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-4 gap-6 animate-fade-in mt-1">
+                <div className="col-span-4 pb-3 mb-1 border-b border-slate-100">
                   <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest">
-                    Sectors & Compliance Focus
+                    Industry Segments & GRC Calibration
                   </h3>
                 </div>
-                {industriesData.map((ind) => {
-                  const IconComp = ind.icon;
-                  return (
-                    <Link
-                      key={ind.id}
-                      to={`/industries/${ind.id}`}
-                      className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors group"
-                    >
-                      <div className="p-1.5 rounded-lg bg-blue-500/10 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors shrink-0">
-                        <IconComp className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
-                          {ind.title}
-                        </div>
-                        <div className="text-[10px] text-slate-500 leading-snug line-clamp-1">
-                          {ind.subtitle}
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
+                {clusters.map((clusterName) => (
+                  <div key={clusterName} className="space-y-2.5">
+                    <h4 className="text-[11px] font-black text-slate-900 uppercase tracking-wider border-l-2 border-blue-500 pl-2">
+                      {clusterName}
+                    </h4>
+                    <div className="flex flex-col gap-1.5 pl-2">
+                      {industriesData
+                        .filter((ind) => ind.cluster === clusterName)
+                        .map((ind) => {
+                          const IconComp = ind.icon;
+                          return (
+                            <Link
+                              key={ind.id}
+                              to={`/industries/${getClusterId(clusterName)}#${ind.id}`}
+                              className="flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors py-0.5 group/link"
+                            >
+                              <IconComp className="w-3.5 h-3.5 text-slate-400 group-hover/link:text-blue-600 transition-colors shrink-0" />
+                              <span className="truncate">{ind.title}</span>
+                            </Link>
+                          );
+                        })}
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
           </div>
 
-          {/* GRC Services Mega Dropdown */}
+          {/* Solutions Mega Dropdown */}
           <div
-            className="relative"
+            className=""
             onMouseEnter={() => setActiveDropdown("services")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
             <button className={getNavItemClass()}>
-              GRC Services <ChevronDown className="w-4 h-4 text-current" />
+              Solutions <ChevronDown className="w-4 h-4 text-current" />
             </button>
             {activeDropdown === "services" && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[780px] bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-2 gap-x-6 gap-y-3 animate-fade-in mt-1">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[95dvw] max-w-4xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-2 gap-x-6 gap-y-3 animate-fade-in mt-1">
                 <div className="col-span-2 pb-3 mb-2 border-b border-slate-100 flex justify-between items-center">
                   <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest">
                     Specialized GRC Offerings
                   </h3>
-                  <Link to="/services" className="text-[10px] font-bold text-slate-400 hover:text-blue-600 uppercase tracking-wider">
-                    View All Services &rarr;
-                  </Link>
                 </div>
                 {servicesData.slice(0, 10).map((serv) => (
                   <Link
@@ -165,16 +176,12 @@ export const Header = () => {
               </div>
             )}
           </div>
-
-          <a href="#staffing" className={getNavItemClass()}>
-            Staffing
-          </a>
-          <a href="#why-govenics" className={getNavItemClass()}>
-            Why Govenics
-          </a>
-          <a href="#cases" className={getNavItemClass()}>
-            Case Studies
-          </a>
+          <Link to="/staffing" className={getLinkClass("/staffing")}>
+            Manage Staffing Services
+          </Link>
+          <Link to="/cybersecurity" className={getLinkClass("/cybersecurity")}>
+            Cyber Security
+          </Link>
           <Link to="/resources" className={getLinkClass("/resources")}>
             Resources
           </Link>
@@ -202,48 +209,53 @@ export const Header = () => {
       {mobileOpen && (
         <div className="xl:hidden bg-white border-t border-slate-200/80 p-6 space-y-4 max-h-[85vh] overflow-y-auto shadow-2xl">
           <div className="flex flex-col gap-1.5">
-            <Link to="/" className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg">
+            <Link to="/" onClick={() => setMobileOpen(false)} className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg">
               Home
             </Link>
-            <a
-              href="#trust"
-              onClick={() => setMobileOpen(false)}
-              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
-            >
-              Trust
-            </a>
 
-            {/* Mobile Accordion for Industries */}
+            {/* Mobile Accordion for Industry */}
             <div>
               <button
                 onClick={() => toggleDropdown("industries")}
                 className="w-full flex justify-between items-center p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
               >
-                <span>Industries</span>
+                <span>Industry</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
               </button>
               {activeDropdown === "industries" && (
-                <div className="pl-4 my-1 grid grid-cols-2 gap-1 bg-slate-50 rounded-lg p-2 border border-slate-100">
-                  {industriesData.map((ind) => (
-                    <Link
-                      key={ind.id}
-                      to={`/industries/${ind.id}`}
-                      className="p-1.5 text-xs text-slate-600 hover:text-blue-600 font-semibold"
-                    >
-                      {ind.title}
-                    </Link>
+                <div className="pl-4 my-1 flex flex-col gap-4 bg-slate-50 rounded-lg p-3 border border-slate-100 max-h-[350px] overflow-y-auto">
+                  {clusters.map((clusterName) => (
+                    <div key={clusterName} className="space-y-1">
+                      <div className="text-[10px] font-black text-blue-600 uppercase tracking-widest border-l-2 border-blue-500 pl-1.5">
+                        {clusterName}
+                      </div>
+                      <div className="pl-2 flex flex-col gap-1">
+                        {industriesData
+                          .filter((ind) => ind.cluster === clusterName)
+                          .map((ind) => (
+                            <Link
+                              key={ind.id}
+                              to={`/industries/${getClusterId(clusterName)}#${ind.id}`}
+                              onClick={() => setMobileOpen(false)}
+                              className="text-xs text-slate-750 text-slate-700 hover:text-blue-600 font-semibold py-0.5"
+                            >
+                              {ind.title}
+                            </Link>
+                          ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}
             </div>
 
-            {/* Mobile Accordion for Services */}
+            {/* Mobile Accordion for Solutions */}
             <div>
               <button
                 onClick={() => toggleDropdown("services")}
                 className="w-full flex justify-between items-center p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
               >
-                <span>Services</span>
+                <span>Solutions</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "services" ? "rotate-180" : ""}`} />
               </button>
               {activeDropdown === "services" && (
@@ -252,6 +264,7 @@ export const Header = () => {
                     <Link
                       key={serv.id}
                       to={`/services/${serv.id}`}
+                      onClick={() => setMobileOpen(false)}
                       className="text-xs text-slate-600 hover:text-blue-600 font-semibold"
                     >
                       {serv.title}
@@ -261,28 +274,21 @@ export const Header = () => {
               )}
             </div>
 
-            <a
-              href="#staffing"
+            <Link
+              to="/staffing"
               onClick={() => setMobileOpen(false)}
-              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
+              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg block"
             >
-              Staffing
-            </a>
-            <a
-              href="#why-govenics"
+              Manage Staffing Services
+            </Link>
+            <Link
+              to="/cybersecurity"
               onClick={() => setMobileOpen(false)}
-              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
+              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg block"
             >
-              Why Govenics
-            </a>
-            <a
-              href="#cases"
-              onClick={() => setMobileOpen(false)}
-              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
-            >
-              Case Studies
-            </a>
-            <Link to="/resources" className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg">
+              Cyber Security
+            </Link>
+            <Link to="/resources" onClick={() => setMobileOpen(false)} className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg">
               Resources
             </Link>
           </div>

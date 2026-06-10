@@ -6,7 +6,7 @@ export const GrcStaffing = () => {
   const [activeSlaTab, setActiveSlaTab] = useState<"fillRate" | "compliance" | "pipeline">("fillRate");
 
   return (
-    <section id="staffing" className="py-14 bg-white border-t border-slate-200/80 relative overflow-hidden">
+    <section id="staffing" className="py-8 bg-white border-t border-slate-200/80 relative overflow-hidden">
       {/* Background spotlights */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-cyan-600/5 rounded-full blur-[140px] pointer-events-none" />
@@ -14,14 +14,14 @@ export const GrcStaffing = () => {
       <div className="container mx-auto px-6 space-y-10 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-500 text-xs font-bold uppercase tracking-widest rounded-full">
             Compliance-Integrated Staffing
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight font-heading">
             Managed Workforce & SLA Staffing
           </h2>
-          <p className="text-slate-655 text-slate-600 text-base leading-relaxed">
+          <p className="text-slate-600 text-base leading-relaxed">
             We deliver domain-certified, pre-vetted compliance officers, manufacturing safety teams, and BFSI operations staff managed under strict statutory SLAs.
           </p>
         </div>

@@ -48,7 +48,7 @@ const comparisonData: ComparisonRow[] = [
 
 export const WhyGovenics = () => {
   return (
-    <section id="why-govenics" className="py-14 bg-transparent border-t border-slate-200/60 relative overflow-hidden">
+    <section id="why-govenics" className="py-8 bg-transparent border-t border-slate-200/60 relative overflow-hidden">
       <div className="container mx-auto px-6 space-y-10 relative z-10">
         
         {/* Section Header */}

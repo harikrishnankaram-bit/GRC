@@ -17,7 +17,7 @@ export const GrcCases = () => {
   const activeCase = casesData[activeIndex];
 
   return (
-    <section id="cases" className="py-14 bg-blue-50/35 border-t border-slate-200/80 relative overflow-hidden">
+    <section id="cases" className="py-8 bg-blue-50/35 border-t border-slate-200/80 relative overflow-hidden">
       {/* Background spotlights */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[140px] pointer-events-none" />
@@ -25,21 +25,21 @@ export const GrcCases = () => {
       <div className="container mx-auto px-6 space-y-10 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 max-w-5xl mx-auto">
-          <div className="space-y-4">
+        <div className="flex flex-col items-center text-center gap-6 max-w-3xl mx-auto">
+          <div className="space-y-4 flex flex-col items-center">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-500 text-xs font-bold uppercase tracking-widest rounded-full">
               Proven Client Success
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight font-heading">
               Govenics GRC in Action
             </h2>
-            <p className="text-slate-655 text-slate-600 text-sm md:text-base leading-relaxed max-w-xl font-medium">
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-xl font-medium mx-auto">
               Discover how we help national banks, factory networks, and healthcare centers audit controls and establish digital trust.
             </p>
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 justify-center">
             <button
               onClick={handlePrev}
               className="p-3.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-blue-600 hover:border-blue-500/30 transition-all shadow"

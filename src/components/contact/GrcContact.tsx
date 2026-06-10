@@ -29,7 +29,7 @@ export const GrcContact = () => {
   };
 
   return (
-    <section className="py-14 bg-white border-t border-slate-200/80 relative overflow-hidden">
+    <section className="py-8 bg-white border-t border-slate-200/80 relative overflow-hidden">
       {/* Background spotlights */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[140px] pointer-events-none" />

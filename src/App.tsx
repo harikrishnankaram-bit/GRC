@@ -4,16 +4,26 @@ import IndustryDetailPage from "@/pages/IndustryDetailPage";
 import ServiceDetailPage from "@/pages/ServiceDetailPage";
 import ResourceHubPage from "@/pages/ResourceHubPage";
 import ContactPage from "@/pages/ContactPage";
+import PrivacyPolicyPage from "@/pages/PrivacyPolicyPage";
+import TermsOfServicePage from "@/pages/TermsOfServicePage";
+import CookiePolicyPage from "@/pages/CookiePolicyPage";
+import ManageStaffingPage from "@/pages/ManageStaffingPage";
+import CyberSecurityPage from "@/pages/CyberSecurityPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/industries/:industryId" element={<IndustryDetailPage />} />
+        <Route path="/industries/:clusterId" element={<IndustryDetailPage />} />
         <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
         <Route path="/resources" element={<ResourceHubPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms" element={<TermsOfServicePage />} />
+        <Route path="/cookies" element={<CookiePolicyPage />} />
+        <Route path="/staffing" element={<ManageStaffingPage />} />
+        <Route path="/cybersecurity" element={<CyberSecurityPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

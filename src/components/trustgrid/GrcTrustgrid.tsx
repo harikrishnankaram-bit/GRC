@@ -63,53 +63,59 @@ export const GrcTrustgrid = () => {
   };
 
   return (
-    <section id="trustgrid" className="py-14 bg-gradient-to-tr from-blue-50/50 via-indigo-50/25 to-slate-50/30 relative overflow-hidden border-t border-slate-200/80">
+    <section id="trustgrid" className="py-8 bg-gradient-to-tr from-blue-50/50 via-indigo-50/25 to-slate-50/30 relative overflow-hidden border-t border-slate-200/80">
       {/* Background spotlights */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="container mx-auto px-6 space-y-12 relative z-10">
         
-        {/* Left Text Segment */}
-        <div className="lg:col-span-5 space-y-6">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/10 border border-blue-500/20 text-blue-500 text-xs font-bold uppercase tracking-widest rounded-full">
             Cyber & AI Intelligence
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight font-heading">
             TRUSTGRID.AI: Futuristic Compliance Overwatch
           </h2>
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium">
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium mx-auto">
             By embedding AI overwatch models directly into client sites, our proprietary <span className="text-blue-600 font-bold">TRUSTGRID.AI</span> platform continuously scans network packets, maps data compliance, audits third-party SLAs, and monitors perimeter warning dials.
           </p>
-          <div className="space-y-4">
-            {[
-              "AI-powered continuous compliance risk auditing.",
-              "Live dynamic dashboards mapping security standards.",
-              "Quantum-resilient IP Watchlists & data protection."
-            ].map((feat, i) => (
-              <div key={i} className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-700">
-                <Shield className="w-5 h-5 text-blue-500 shrink-0" />
-                <span>{feat}</span>
-              </div>
-            ))}
-          </div>
-          
-          <button
-            onClick={triggerThreatSimulation}
-            disabled={isThreatActive}
-            className={`flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all shadow-lg ${
-              isThreatActive
-                ? "bg-red-600 text-white animate-pulse shadow-red-500/20"
-                : "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/20 hover:scale-[1.02]"
-            }`}
-          >
-            <AlertTriangle className="w-4 h-4" />
-            {isThreatActive ? "Simulating Threat Intrusion..." : "Trigger Live Threat Simulation"}
-          </button>
         </div>
 
-        {/* Right Dashboard Mockup Segment */}
-        <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 relative overflow-hidden shadow-2xl">
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Text Segment */}
+          <div className="lg:col-span-5 space-y-6 flex flex-col items-center text-center lg:items-start lg:text-left">
+            <div className="space-y-4 w-full">
+              {[
+                "AI-powered continuous compliance risk auditing.",
+                "Live dynamic dashboards mapping security standards.",
+                "Quantum-resilient IP Watchlists & data protection."
+              ].map((feat, i) => (
+                <div key={i} className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-slate-700 justify-center lg:justify-start">
+                  <Shield className="w-5 h-5 text-blue-500 shrink-0" />
+                  <span>{feat}</span>
+                </div>
+              ))}
+            </div>
+            
+            <button
+              onClick={triggerThreatSimulation}
+              disabled={isThreatActive}
+              className={`flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wide transition-all shadow-lg ${
+                isThreatActive
+                  ? "bg-red-600 text-white animate-pulse shadow-red-500/20"
+                  : "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/20 hover:scale-[1.02]"
+              }`}
+            >
+              <AlertTriangle className="w-4 h-4" />
+              {isThreatActive ? "Simulating Threat Intrusion..." : "Trigger Live Threat Simulation"}
+            </button>
+          </div>
+
+          {/* Right Dashboard Mockup Segment */}
+          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 relative overflow-hidden shadow-2xl">
           {/* Subtle grid lines background inside the dashboard */}
           <div className="absolute inset-0 bg-cyber-grid bg-[size:24px_24px] opacity-10 pointer-events-none" />
 
@@ -206,6 +212,7 @@ export const GrcTrustgrid = () => {
             )}
           </div>
         </div>
+      </div>
 
       </div>
     </section>
