@@ -96,7 +96,7 @@ export default function ManageStaffingPage() {
       icon: BarChart3,
       features: [
         "Domain-certified specialists",
-        "TRUSTGRID.AI checks integrated",
+        "GOVENICS.AI checks integrated",
         "Compliance-first site training"
       ]
     }

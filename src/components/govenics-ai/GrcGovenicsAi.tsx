@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { Terminal, Shield, Wifi, AlertTriangle } from "lucide-react";
 
-export const GrcTrustgrid = () => {
+export const GrcGovenicsAi = () => {
   const [logs, setLogs] = useState<string[]>([
-    "[SYSTEM INITIALIZED] - TrustGrid.AI Compliance Overwatch active.",
+    "[SYSTEM INITIALIZED] - Govenics.AI Compliance Overwatch active.",
     "[INFO] - Port 8081 unmasked. Integrity scan complete.",
     "[SECURE] - Quantum-safe SSL handshake verified with local node.",
   ]);
@@ -53,7 +53,7 @@ export const GrcTrustgrid = () => {
     setLogs((prev) => [
       ...prev,
       `[${timestamp}] - WARNING: Suspicious IP traffic profiling alert triggered!`,
-      `[${timestamp}] - TRUSTGRID.AI SENTRY: Initiated IP Watchlist verification protocols.`,
+      `[${timestamp}] - GOVENICS.AI SENTRY: Initiated IP Watchlist verification protocols.`,
       `[${timestamp}] - [SECURED]: Unmasked IP 42.109.112.5 dynamically blocked.`
     ]);
 
@@ -63,7 +63,7 @@ export const GrcTrustgrid = () => {
   };
 
   return (
-    <section id="trustgrid" className="py-8 bg-gradient-to-tr from-blue-50/50 via-indigo-50/25 to-slate-50/30 relative overflow-hidden border-t border-slate-200/80">
+    <section id="govenics-ai" className="py-8 bg-gradient-to-tr from-blue-50/50 via-indigo-50/25 to-slate-50/30 relative overflow-hidden border-t border-slate-200/80">
       {/* Background spotlights */}
       <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none" />
@@ -76,10 +76,10 @@ export const GrcTrustgrid = () => {
             Cyber & AI Intelligence
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight font-heading">
-            TRUSTGRID.AI: Futuristic Compliance Overwatch
+            GOVENICS.AI: Futuristic Compliance Overwatch
           </h2>
           <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium mx-auto">
-            By embedding AI overwatch models directly into client sites, our proprietary <span className="text-blue-600 font-bold">TRUSTGRID.AI</span> platform continuously scans network packets, maps data compliance, audits third-party SLAs, and monitors perimeter warning dials.
+            By embedding AI overwatch models directly into client sites, our proprietary <span className="text-blue-600 font-bold">GOVENICS.AI</span> platform continuously scans network packets, maps data compliance, audits third-party SLAs, and monitors perimeter warning dials.
           </p>
         </div>
 
@@ -213,7 +213,6 @@ export const GrcTrustgrid = () => {
           </div>
         </div>
       </div>
-
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
-import { GrcTrustgrid } from "@/components/trustgrid/GrcTrustgrid";
+import { GrcGovenicsAi } from "@/components/govenics-ai/GrcGovenicsAi";
 import { GrcSliderHero } from "@/components/hero/GrcSliderHero";
 
 import heroAiDriven from "@/assets/hero-ai-driven.jpg";
@@ -11,7 +11,7 @@ export default function CyberSecurityPage() {
   const slides = [
     {
       badge: "AI Threat Intelligence",
-      title: "TRUSTGRID.AI Live Compliance",
+      title: "GOVENICS.AI Live Compliance",
       highlight: "Overwatch Platform",
       description: "Embed AI models directly into client sites to continuously scan packets, map security controls, and identify threats in real time.",
       image: heroVerify,
@@ -44,7 +44,7 @@ export default function CyberSecurityPage() {
       <div className="bg-white">
         <GrcSliderHero slides={slides} categoryLabel="Cyber Security" />
         <div className="bg-background min-h-[70vh]">
-          <GrcTrustgrid />
+          <GrcGovenicsAi />
         </div>
       </div>
     </Layout>

@@ -194,7 +194,7 @@ export const GrcStaffing = () => {
                 <ShieldCheck className="w-4 h-4 text-blue-500" /> Statutory registers updated automatically
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-blue-500" /> Integrated with TRUSTGRID.AI Watchlists
+                <ShieldCheck className="w-4 h-4 text-blue-500" /> Integrated with GOVENICS.AI Watchlists
               </div>
             </div>
           </div>

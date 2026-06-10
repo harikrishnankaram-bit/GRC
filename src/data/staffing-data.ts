@@ -106,5 +106,5 @@ export const staffingIntegrations = [
   "Labour law adherence (CLRA, Minimum Wages, Contract Labour) embedded directly in workflows.",
   "Background verification and certification validation for highly regulated profiles.",
   "SLA-based interactive reporting aligned with client's GRC command centers.",
-  "Seamless integration with TRUSTGRID.AI's IP Watchlist and cyber overwatch portals."
+  "Seamless integration with GOVENICS.AI's IP Watchlist and cyber overwatch portals."
 ];

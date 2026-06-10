@@ -66,7 +66,7 @@ export default function TermsOfServicePage() {
             </h2>
             <div className="text-sm text-slate-600 leading-relaxed font-medium space-y-3">
               <p>
-                All templates, pre-codified audit checklists, training guides, and TRUSTGRID.AI interface materials are the exclusive intellectual property of Govenics and ISI Group:
+                All templates, pre-codified audit checklists, training guides, and GOVENICS.AI interface materials are the exclusive intellectual property of Govenics and ISI Group:
               </p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Limited License:</strong> Clients are granted a non-exclusive, non-transferable license to use templates internally for audit tracking.</li>

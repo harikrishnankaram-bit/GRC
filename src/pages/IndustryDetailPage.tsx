@@ -188,7 +188,7 @@ export default function IndustryDetailPage() {
       {
         title: "AI Driven Tech Platform",
         icon: Wifi,
-        description: `Leverage the power of our TRUSTGRID.AI compliance platform. Continuously scanning network packets, mapping data consent, and auditing workflows, the platform automates data validation for ${title}.`,
+        description: `Leverage the power of our GOVENICS.AI compliance platform. Continuously scanning network packets, mapping data consent, and auditing workflows, the platform automates data validation for ${title}.`,
         detailsTitle: "Key Details",
         details: [
           "Predictive Threat Profiling: AI models predicting potential data leaks and control failures.",

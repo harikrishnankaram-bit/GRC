@@ -16,7 +16,7 @@ const comparisonData: ComparisonRow[] = [
   },
   {
     advantage: "Compliance Automation",
-    govenics: "Integrated TRUSTGRID.AI client-site trackers auditing environmental, telecom & data logs dynamically.",
+    govenics: "Integrated GOVENICS.AI client-site trackers auditing environmental, telecom & data logs dynamically.",
     traditional: "Static annual Excel spreadsheets and manual auditing folders that become stale instantly.",
     status: "success"
   },
