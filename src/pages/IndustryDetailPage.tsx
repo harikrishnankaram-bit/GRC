@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { industriesData } from "@/data/industries-data";
@@ -43,20 +43,7 @@ export default function IndustryDetailPage() {
   // Filter sub-sectors belonging to this cluster
   const clusterSectors = industriesData.filter((ind) => ind.cluster === clusterName);
 
-  // Handle smooth scroll on load/hash changes
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 300);
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [clusterId, window.location.hash]);
+
 
   // Dynamic Metrics generator based on industry profile
   const getIndustryStats = (id: string) => {

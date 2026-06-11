@@ -98,6 +98,9 @@ export const Header = () => {
           <Link to="/" className={getLinkClass("/")}>
             Home
           </Link>
+          <Link to="/about" className={getLinkClass("/about")}>
+            About Us
+          </Link>
 
           {/* Industry Mega Dropdown */}
           <div
@@ -182,12 +185,152 @@ export const Header = () => {
               </div>
             )}
           </div>
-          <Link to="/staffing" className={getLinkClass("/staffing")}>
-            Manage Staffing Services
-          </Link>
-          <Link to="/cybersecurity" className={getLinkClass("/cybersecurity")}>
-            Cyber Security
-          </Link>
+          {/* Staffing Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setActiveDropdown("staffing")}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <button className={getNavItemClass()}>
+              Manage Staffing <ChevronDown className="w-4 h-4 text-current" />
+            </button>
+            {activeDropdown === "staffing" && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[240px] bg-white border border-slate-200 shadow-2xl rounded-2xl p-4 flex flex-col gap-2.5 animate-slide-up-dropdown mt-1">
+                {/* Bridge to prevent hover loss */}
+                <div className="absolute -top-8 left-0 right-0 h-8 bg-transparent" />
+                <div className="pb-1.5 mb-0.5 border-b border-slate-100">
+                  <h3 className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">
+                    Staffing Services
+                  </h3>
+                </div>
+                <Link to="/staffing#part-1-skills" onClick={() => setActiveDropdown(null)} className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors">Part I: Skill Tiers</Link>
+                <Link to="/staffing#part-2-formats" onClick={() => setActiveDropdown(null)} className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors">Part II: Hiring Formats</Link>
+                <Link to="/staffing#part-3-models" onClick={() => setActiveDropdown(null)} className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors">Part III: Strategic Models</Link>
+                <Link to="/staffing#part-4-matrix" onClick={() => setActiveDropdown(null)} className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors">Part IV: Industry Matrix</Link>
+                <Link to="/staffing#part-5-offerings" onClick={() => setActiveDropdown(null)} className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors">Part V: Service Offerings</Link>
+                <Link to="/staffing#part-6-screening" onClick={() => setActiveDropdown(null)} className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors">Part VI: Candidate Vetting</Link>
+                <Link to="/staffing#part-7-benefits" onClick={() => setActiveDropdown(null)} className="text-xs font-semibold text-slate-700 hover:text-blue-600 transition-colors">Part VII: Key Advantages</Link>
+              </div>
+            )}
+          </div>
+
+          {/* Cyber Security Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setActiveDropdown("cybersecurity")}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <button className={getNavItemClass()}>
+              Cyber Security <ChevronDown className="w-4 h-4 text-current" />
+            </button>
+            {activeDropdown === "cybersecurity" && (
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[780px] bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-3 gap-6 animate-slide-up-dropdown mt-1 text-left">
+                {/* Bridge to prevent hover loss */}
+                <div className="absolute -top-8 left-0 right-0 h-8 bg-transparent" />
+                
+                {/* Left Side: Overview & Summary */}
+                <div className="col-span-1 bg-slate-50 border border-slate-100 rounded-xl p-4 space-y-3">
+                  <h3 className="text-xs font-black text-blue-600 uppercase tracking-widest">
+                    Cyber Security
+                  </h3>
+                  <p className="text-[10px] text-slate-500 font-semibold leading-relaxed">
+                    NIST CSF 2.0 aligned security frameworks and compliance auditing for enterprise GRC postures.
+                  </p>
+                  <div className="flex flex-col gap-2 pt-2 border-t border-slate-200/60">
+                    <Link 
+                      to="/cybersecurity#overview-hero" 
+                      onClick={() => setActiveDropdown(null)} 
+                      className="text-xs font-bold text-slate-800 hover:text-blue-600 transition-colors flex items-center gap-1 group/link"
+                    >
+                      <span>Executive Summary</span>
+                      <ArrowRight className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                    </Link>
+                    <Link 
+                      to="/cybersecurity#nist-matrix" 
+                      onClick={() => setActiveDropdown(null)} 
+                      className="text-xs font-bold text-slate-800 hover:text-blue-600 transition-colors flex items-center gap-1 group/link"
+                    >
+                      <span>NIST CSF 2.0 Mapping</span>
+                      <ArrowRight className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right Side: 2 Columns of Offerings */}
+                <div className="col-span-2 grid grid-cols-2 gap-4">
+                  {/* Column 1 */}
+                  <div className="space-y-4">
+                    {/* Govern */}
+                    <div className="space-y-1.5">
+                      <div className="text-[9px] font-black text-rose-500 uppercase tracking-wider border-l-2 border-rose-500 pl-1.5">Govern (GV)</div>
+                      <div className="flex flex-col gap-1 pl-2">
+                        <Link to="/cybersecurity#offering-grc" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-rose-600 transition-colors">O1: AI-GRC Platform</Link>
+                        <Link to="/cybersecurity#offering-compliance" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-rose-600 transition-colors">O3: Regulatory Compliance</Link>
+                        <Link to="/cybersecurity#offering-sovereign" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-rose-600 transition-colors">O13: Sovereign AI</Link>
+                      </div>
+                    </div>
+
+                    {/* Identify */}
+                    <div className="space-y-1.5">
+                      <div className="text-[9px] font-black text-blue-500 uppercase tracking-wider border-l-2 border-blue-500 pl-1.5">Identify (ID)</div>
+                      <div className="flex flex-col gap-1 pl-2">
+                        <Link to="/cybersecurity#offering-posture" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-blue-600 transition-colors">O2: Risk Posture</Link>
+                        <Link to="/cybersecurity#offering-risk" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-blue-600 transition-colors">O4: Risk Assessment</Link>
+                      </div>
+                    </div>
+
+                    {/* Protect */}
+                    <div className="space-y-1.5">
+                      <div className="text-[9px] font-black text-emerald-500 uppercase tracking-wider border-l-2 border-emerald-500 pl-1.5">Protect (PR)</div>
+                      <div className="flex flex-col gap-1 pl-2">
+                        <Link to="/cybersecurity#offering-architecture" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors">O5: Zero Trust Architecture</Link>
+                        <Link to="/cybersecurity#offering-llm" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors">O6: LLM & Agent Security</Link>
+                        <Link to="/cybersecurity#offering-quantum" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors">O15: Quantum-Safe Readiness</Link>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Column 2 */}
+                  <div className="space-y-4">
+                    {/* Detect */}
+                    <div className="space-y-1.5">
+                      <div className="text-[9px] font-black text-amber-500 uppercase tracking-wider border-l-2 border-amber-500 pl-1.5">Detect (DE)</div>
+                      <div className="flex flex-col gap-1 pl-2">
+                        <Link to="/cybersecurity#offering-hunting" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-amber-600 transition-colors">O7: Threat Hunting</Link>
+                        <Link to="/cybersecurity#offering-bas" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-amber-600 transition-colors">O8: AI-BAS Platform</Link>
+                      </div>
+                    </div>
+
+                    {/* Respond */}
+                    <div className="space-y-1.5">
+                      <div className="text-[9px] font-black text-purple-500 uppercase tracking-wider border-l-2 border-purple-500 pl-1.5">Respond (RS)</div>
+                      <div className="flex flex-col gap-1 pl-2">
+                        <Link to="/cybersecurity#offering-mdr" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-purple-600 transition-colors">O9: AI-MDR Service</Link>
+                        <Link to="/cybersecurity#offering-soc" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-purple-600 transition-colors">O10: Agentic SOC Operations</Link>
+                      </div>
+                    </div>
+
+                    {/* Recover */}
+                    <div className="space-y-1.5">
+                      <div className="text-[9px] font-black text-indigo-500 uppercase tracking-wider border-l-2 border-indigo-500 pl-1.5">Recover (RC)</div>
+                      <div className="flex flex-col gap-1 pl-2">
+                        <Link to="/cybersecurity#offering-incident" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-indigo-600 transition-colors">O11: Incident Response</Link>
+                        <Link to="/cybersecurity#offering-range" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-indigo-600 transition-colors">O14: Cyber Range</Link>
+                      </div>
+                    </div>
+
+                    {/* Cross-cutting */}
+                    <div className="space-y-1.5">
+                      <div className="text-[9px] font-black text-cyan-500 uppercase tracking-wider border-l-2 border-cyan-500 pl-1.5">Cross-cutting (CC)</div>
+                      <div className="flex flex-col gap-1 pl-2">
+                        <Link to="/cybersecurity#offering-pentesting" onClick={() => setActiveDropdown(null)} className="text-[10px] font-semibold text-slate-600 hover:text-cyan-600 transition-colors">O12: Continuous Pentesting</Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
           <Link to="/resources" className={getLinkClass("/resources")}>
             Resources
           </Link>
@@ -218,6 +361,9 @@ export const Header = () => {
             <Link to="/" onClick={() => setMobileOpen(false)} className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg">
               Home
             </Link>
+            <Link to="/about" onClick={() => setMobileOpen(false)} className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg">
+              About Us
+            </Link>
 
             {/* Mobile Accordion for Industry */}
             <div>
@@ -240,10 +386,10 @@ export const Header = () => {
                           .filter((ind) => ind.cluster === clusterName)
                           .map((ind) => (
                             <Link
-                              key={ind.id}
-                              to={`/industries/${getClusterId(clusterName)}#${ind.id}`}
-                              onClick={() => setMobileOpen(false)}
-                              className="text-xs text-slate-750 text-slate-700 hover:text-blue-600 font-semibold py-0.5"
+                               key={ind.id}
+                               to={`/industries/${getClusterId(clusterName)}#${ind.id}`}
+                               onClick={() => setMobileOpen(false)}
+                               className="text-xs text-slate-750 text-slate-700 hover:text-blue-600 font-semibold py-0.5"
                             >
                               {ind.title}
                             </Link>
@@ -280,20 +426,73 @@ export const Header = () => {
               )}
             </div>
 
-            <Link
-              to="/staffing"
-              onClick={() => setMobileOpen(false)}
-              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg block"
-            >
-              Manage Staffing Services
-            </Link>
-            <Link
-              to="/cybersecurity"
-              onClick={() => setMobileOpen(false)}
-              className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg block"
-            >
-              Cyber Security
-            </Link>
+            {/* Mobile Accordion for Staffing */}
+            <div>
+              <button
+                onClick={() => toggleDropdown("staffing")}
+                className="w-full flex justify-between items-center p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
+              >
+                <span>Manage Staffing</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "staffing" ? "rotate-180" : ""}`} />
+              </button>
+              {activeDropdown === "staffing" && (
+                <div className="pl-4 my-1 flex flex-col gap-2 bg-slate-50 rounded-lg p-3 border border-slate-100">
+                  <Link to="/staffing#part-1-skills" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700">Part I: Skill Tiers</Link>
+                  <Link to="/staffing#part-2-formats" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700">Part II: Hiring Formats</Link>
+                  <Link to="/staffing#part-3-models" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700">Part III: Strategic Models</Link>
+                  <Link to="/staffing#part-4-matrix" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700">Part IV: Industry Matrix</Link>
+                  <Link to="/staffing#part-5-offerings" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700">Part V: Service Offerings</Link>
+                  <Link to="/staffing#part-6-screening" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700">Part VI: Candidate Vetting</Link>
+                  <Link to="/staffing#part-7-benefits" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700">Part VII: Key Advantages</Link>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Accordion for Cyber Security */}
+            <div>
+              <button
+                onClick={() => toggleDropdown("cybersecurity")}
+                className="w-full flex justify-between items-center p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg"
+              >
+                <span>Cyber Security</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "cybersecurity" ? "rotate-180" : ""}`} />
+              </button>
+              {activeDropdown === "cybersecurity" && (
+                <div className="pl-4 my-1 flex flex-col gap-3 bg-slate-50 rounded-lg p-3 border border-slate-100 max-h-[300px] overflow-y-auto">
+                  <Link to="/cybersecurity#overview-hero" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700 font-bold">Executive Summary</Link>
+                  <Link to="/cybersecurity#nist-matrix" onClick={() => setMobileOpen(false)} className="text-xs font-semibold text-slate-700 font-bold">NIST CSF 2.0 Mapping Matrix</Link>
+                  
+                  <div className="text-[10px] font-black text-rose-500 uppercase tracking-widest pt-1 border-t border-slate-200/50">Govern</div>
+                  <Link to="/cybersecurity#offering-grc" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O1: AI-GRC Platform</Link>
+                  <Link to="/cybersecurity#offering-compliance" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O3: Regulatory Compliance</Link>
+                  <Link to="/cybersecurity#offering-sovereign" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O13: Sovereign AI</Link>
+
+                  <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest pt-1 border-t border-slate-200/50">Identify</div>
+                  <Link to="/cybersecurity#offering-posture" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O2: AI Risk Posture</Link>
+                  <Link to="/cybersecurity#offering-risk" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O4: AI Risk Assessment</Link>
+
+                  <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest pt-1 border-t border-slate-200/50">Protect</div>
+                  <Link to="/cybersecurity#offering-architecture" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O5: Zero Trust Architecture</Link>
+                  <Link to="/cybersecurity#offering-llm" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O6: LLM & Agent Security</Link>
+                  <Link to="/cybersecurity#offering-quantum" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O15: Quantum-Safe Readiness</Link>
+
+                  <div className="text-[10px] font-black text-amber-500 uppercase tracking-widest pt-1 border-t border-slate-200/50">Detect</div>
+                  <Link to="/cybersecurity#offering-hunting" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O7: Threat Hunting</Link>
+                  <Link to="/cybersecurity#offering-bas" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O8: AI-BAS Platform</Link>
+
+                  <div className="text-[10px] font-black text-purple-500 uppercase tracking-widest pt-1 border-t border-slate-200/50">Respond</div>
+                  <Link to="/cybersecurity#offering-mdr" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O9: AI-MDR Service</Link>
+                  <Link to="/cybersecurity#offering-soc" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O10: Agentic SOC Operations</Link>
+
+                  <div className="text-[10px] font-black text-indigo-500 uppercase tracking-widest pt-1 border-t border-slate-200/50">Recover</div>
+                  <Link to="/cybersecurity#offering-incident" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O11: Incident Response</Link>
+                  <Link to="/cybersecurity#offering-range" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O14: Cyber Range</Link>
+
+                  <div className="text-[10px] font-black text-cyan-500 uppercase tracking-widest pt-1 border-t border-slate-200/50">Cross-cutting</div>
+                  <Link to="/cybersecurity#offering-pentesting" onClick={() => setMobileOpen(false)} className="pl-2 text-xs text-slate-700">O12: Continuous Pentest</Link>
+                </div>
+              )}
+            </div>
             <Link to="/resources" onClick={() => setMobileOpen(false)} className="p-2 text-sm font-bold text-slate-800 hover:bg-slate-50 rounded-lg">
               Resources
             </Link>

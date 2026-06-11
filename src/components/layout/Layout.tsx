@@ -8,11 +8,43 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname]);
+    if (hash) {
+      const elementId = hash.startsWith("#") ? hash.substring(1) : hash;
+      
+      const scrollToHash = () => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          const headerOffset = 110; // Account for the sticky header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+          return true;
+        }
+        return false;
+      };
+
+      // Try scrolling immediately
+      if (!scrollToHash()) {
+        let attempts = 0;
+        const interval = setInterval(() => {
+          attempts++;
+          if (scrollToHash() || attempts >= 15) {
+            clearInterval(interval);
+          }
+        }, 100);
+        return () => clearInterval(interval);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [pathname, hash]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col overflow-x-hidden select-none selection:bg-blue-600/10 selection:text-blue-600 text-foreground">

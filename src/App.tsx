@@ -9,12 +9,14 @@ import TermsOfServicePage from "@/pages/TermsOfServicePage";
 import CookiePolicyPage from "@/pages/CookiePolicyPage";
 import ManageStaffingPage from "@/pages/ManageStaffingPage";
 import CyberSecurityPage from "@/pages/CyberSecurityPage";
+import AboutPage from "@/pages/AboutPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/industries/:clusterId" element={<IndustryDetailPage />} />
         <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
         <Route path="/resources" element={<ResourceHubPage />} />
