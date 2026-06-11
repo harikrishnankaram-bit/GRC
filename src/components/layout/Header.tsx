@@ -109,7 +109,9 @@ export const Header = () => {
               Industry <ChevronDown className="w-4 h-4 text-current" />
             </button>
             {activeDropdown === "industries" && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[95dvw] max-w-6xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-4 gap-6 animate-fade-in mt-1">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[95dvw] max-w-6xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-4 gap-6 animate-slide-up-dropdown mt-1">
+                {/* Bridge to prevent hover loss */}
+                <div className="absolute -top-8 left-0 right-0 h-8 bg-transparent" />
                 <div className="col-span-4 pb-3 mb-1 border-b border-slate-100">
                   <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest">
                     Industry Segments & GRC Calibration
@@ -129,6 +131,7 @@ export const Header = () => {
                             <Link
                               key={ind.id}
                               to={`/industries/${getClusterId(clusterName)}#${ind.id}`}
+                              onClick={() => setActiveDropdown(null)}
                               className="flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors py-0.5 group/link"
                             >
                               <IconComp className="w-3.5 h-3.5 text-slate-400 group-hover/link:text-blue-600 transition-colors shrink-0" />
@@ -153,7 +156,9 @@ export const Header = () => {
               Solutions <ChevronDown className="w-4 h-4 text-current" />
             </button>
             {activeDropdown === "services" && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[95dvw] max-w-4xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-2 gap-x-6 gap-y-3 animate-fade-in mt-1">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[95dvw] max-w-4xl bg-white border border-slate-200 shadow-2xl rounded-2xl p-6 grid grid-cols-2 gap-x-6 gap-y-3 animate-slide-up-dropdown mt-1">
+                {/* Bridge to prevent hover loss */}
+                <div className="absolute -top-8 left-0 right-0 h-8 bg-transparent" />
                 <div className="col-span-2 pb-3 mb-2 border-b border-slate-100 flex justify-between items-center">
                   <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest">
                     Specialized GRC Offerings
@@ -163,6 +168,7 @@ export const Header = () => {
                   <Link
                     key={serv.id}
                     to={`/services/${serv.id}`}
+                    onClick={() => setActiveDropdown(null)}
                     className="flex flex-col p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                   >
                     <span className="text-xs font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
